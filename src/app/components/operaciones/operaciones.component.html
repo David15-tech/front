@@ -1,0 +1,57 @@
+<div *ngIf="_router.url.endsWith('/suma')">
+    <form #usuarioForm="ngForm" (ngSubmit)="calcSuma(usuarioForm)">
+      <input type="number" [(ngModel)]="num1" name="valor1">
+      +
+      <input type="number" [(ngModel)]="num2" name="valor2">
+      <button type="submit">Sumar</button>
+    </form>
+</div>
+<div *ngIf="_router.url.endsWith('/resta')">
+    <form #usuarioForm="ngForm" (ngSubmit)="calcResta(usuarioForm)">
+      <input type="number" [(ngModel)]="num1" name="valor1">
+      -
+      <input type="number" [(ngModel)]="num2" name="valor2">
+      <button type="submit">Restar</button>
+    </form>
+</div>
+<div *ngIf="_router.url.endsWith('/multiplicacion')">
+    <form #usuarioForm="ngForm" (ngSubmit)="calcMulti(usuarioForm)">
+      <input type="number" [(ngModel)]="num1" name="valor1">
+      x
+      <input type="number" [(ngModel)]="num2" name="valor2">
+      <button type="submit">Multiplicar</button>
+    </form>
+</div>
+<div *ngIf="_router.url.endsWith('/division')">
+    <form #usuarioForm="ngForm" (ngSubmit)="calcDivision(usuarioForm)">
+      <input type="number" [(ngModel)]="num1" name="valor1">
+      /
+      <input type="number" [(ngModel)]="num2" name="valor2">
+      <button type="submit">Dividir</button>
+    </form>
+</div>
+<div *ngIf="_router.url.endsWith('/potencia')">
+    <form #usuarioForm="ngForm" (ngSubmit)="calcPotencia(usuarioForm)">
+      <input type="number" [(ngModel)]="num1" name="valor1">
+      ^
+      <input type="number" [(ngModel)]="num2" name="valor2">
+      <button type="submit">Calcular</button>
+    </form>
+</div>
+<div *ngIf="_router.url.endsWith('/raiz-cuadrada')">
+    <form #usuarioForm="ngForm" (ngSubmit)="calcRaiz(usuarioForm)">
+      <input type="number" [(ngModel)]="num1" name="valor1">
+      <button type="submit">Calcular</button>
+    </form>
+</div>
+
+<div class="message success" *ngIf="status=='success'">
+    Usuario registrado con exito, <a [routerLink]="['/inicio']">regresar</a>.
+    <p>Su respuesta es: {{this.resultado}}</p>
+</div>
+<div class="message failed" *ngIf="status=='failed'">
+    El usuario no se ha podido guardar.
+</div>
+
+
+
